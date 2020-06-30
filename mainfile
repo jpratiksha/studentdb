@@ -1,0 +1,59 @@
+D1={}
+
+while 'true':
+    print('1:ADD NEW STUDENT')
+    print('2:SEARCH NEW STUDENT')
+    print('3:DELETE NEW STUDENT')
+    print('4:EXIT')
+
+    print('')
+
+    a=int(input('enter your option:'))
+    print('')
+    if a==1:
+        roll=int((input('enter roll no:'))) #input for roll no
+        D1[roll]={}
+        name1=input('enter name:')  #input for name 
+        D1[roll]['NAME']=name1
+        class1=input('enter class ')
+        D1[roll]['CLASS']=class1
+        D1[roll]['MARKS']={}
+        D1[roll]['MARKS']['ENGLISH']=int(input('enter english marks:'))  #input for marks
+        D1[roll]['MARKS']['PHYSICS']=int(input('enter physics marks:'))  #input for marks
+        D1[roll]['MARKS']['MATHS']=int(input('enter maths marks:')) #input for marks        
+        D1[roll]['PERCENTAGE']=(D1[roll]['MARKS']['ENGLISH']+D1[roll]['MARKS']['PHYSICS']+D1[roll]['MARKS']['MATHS'])/len(D1[roll]['MARKS'])
+
+        
+    elif a==2:        
+        Search=int((input('enter roll no:'))) #input for roll no
+        
+        if Search in D1:
+            print(D1[Search])
+            print('')
+        else:
+            print('roll no not found')
+            print('')
+         
+
+    elif a==3:
+        Delete=int((input('enter roll no :')))
+        if Delete in D1:
+            del(D1[Delete])
+            print('roll no',Delete,'deleted')
+            print('')
+        else:
+            print('roll no not found')
+            print('')
+    elif a==4:
+        
+        break
+
+    else:
+        print('invalid selection')
+        print('')
+    if D1[roll]['PERCENTAGE']>=70:
+        D1[roll]['SCHOLARSHIP']=10000
+        
+    elif D1[roll]['PERCENTAGE']<70:
+                  
+        D1[roll]['SCHOLARSHIP']=5000
